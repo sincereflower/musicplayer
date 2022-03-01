@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的音乐</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onselectstart="return false">
+    <!-- 想上传txt，读取写入 -->
+    <!-- <input type="file" class="input_file" style="width: 70px;"> -->
+    <div id="player">
+        <!-- 歌曲信息模块 -->
+        <div id="player-content1">
+            <!-- 歌曲名 -->
+            <div class="music-name"></div>
+            <!-- 歌手名 -->
+            <div class="artist-name"></div>
+            <!-- 歌曲时间 -->
+            <div class="time">
+                <!-- 当前播放的时间 -->
+                <div class="current-time"></div>
+                <!-- 歌曲总时长 -->
+                <div class="total-time"></div>
+            </div>
+            <!-- 进度条 -->
+            <div id="s-area">
+                <!-- 鼠标移动到进度条上，显示的时间信息 -->
+                <div id="ins-time"></div>
+                <!-- 鼠标移动到进度条上，进度条变暗部分-->
+                <div id="s-hover"></div>
+                <!-- 表示当前歌曲播放进度的蓝色进度条 -->
+                <div id="seek-bar"></div>
+            </div>
+        </div>
+
+        <!-- 控制模块 -->
+        <div id="player-content2">
+            <!-- 左侧歌曲封面旋转模块 -->
+            <div class="music-imgs">
+                <!-- 封面图 -->
+                <img alt="" class="img" draggable="false">
+                <!-- 歌曲缓冲时的提示文字 -->
+                <div id="buffer-box">缓冲…</div>
+            </div>
+            <!-- 右侧歌曲操作模块 -->
+            <div class="player-controls">
+                <!-- 上一首按钮 -->
+                <div class="btn prev iconfont">&#xe603;</div>
+                <!-- 暂停/播放 按钮 -->
+                <div class="btn play-pause icon-jiediankaishi iconfont"></div>
+                <!-- 下一首按钮 -->
+                <div class="btn next iconfont">&#xe602;</div>
+                <!-- 音量按钮 -->
+                <div class="volume">
+                    <span class="icon icon-play" id="volume"></span>
+                </div>
+                <!-- 播放顺序按钮 -->
+                <div class="order">
+                    <span class="icon icon-sequence" id="order"></span>
+                </div>
+                <!-- 列表按钮 -->
+                <div class="list">
+                    <span class="icon icon-list" id="list"></span>
+                </div>
+                <!-- 隐藏的音量条 -->
+                <div class="panel">
+                    <input class="range" type="range" min="0" max="100" value="100">
+                    <p class="text"></p>
+                </div>
+                <span class="text2" style="display: none;"></span>
+                <span class="text3" style="display: none;"></span>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <script type="text/javascript">
+    // 禁用input的方向键
+    $('.range').keydown(function (event) {
+        if(event.keyCode == 37||event.keyCode == 38||event.keyCode == 39||event.keyCode == 40){
+            return false;
+        }
+    });
+    </script>
+</body>
+</html>
